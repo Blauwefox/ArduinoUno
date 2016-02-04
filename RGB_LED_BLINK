@@ -1,0 +1,58 @@
+/* originally from ADA fruit's website Code for RGB LED. Just played with it on 19JAN2016
+Thanks, ADAFRUIT! You guys rock. Looking forward to sample some of your products in the future. 
+Video of it working on youtube https://youtu.be/AUwJfvbLoGM */
+
+
+/*note that we use common anode RGB LED, so anone is connected to 5V
+and a write LOW turns the LED on while a write HIGH turns it off.
+invert these for common cathode RGB LED*/
+
+
+// Init the Pins used for PWM
+const int redPin = 9;
+const int greenPin = 10;
+const int bluePin = 11;
+     
+// Init the Pins used for color pots
+const int redPotPin = 0;
+const int greenPotPin = 1;
+const int bluePotPin = 2;
+   
+//Init the Pin used for velocity pot
+const int velocityPotPin = 3;
+     
+// Init Variables
+int currentColorValueRed;
+int currentColorValueGreen;
+int currentColorValueBlue;
+int velocityValue;
+
+     
+void setup() {
+  pinMode(redPin, OUTPUT);
+  pinMode(greenPin, OUTPUT);
+  pinMode(bluePin, OUTPUT);
+  }
+     
+void loop() {
+  // Read the voltage on each analog pin then scale down to 0-255 and inverting the value for common anode
+  currentColorValueRed = (255 - map( analogRead(redPotPin), 0, 1024, 0, 255 ) );
+  currentColorValueBlue = (255 - map( analogRead(bluePotPin), 0, 1024, 0, 255 ) );
+  currentColorValueGreen = (255 - map( analogRead(greenPotPin), 0, 1024, 0, 255 ) );
+     
+  // Write the color to each pin using PWM and the value gathered above
+  analogWrite(redPin, currentColorValueRed);
+  analogWrite(bluePin, currentColorValueBlue);
+  analogWrite(greenPin, currentColorValueGreen);
+   
+  //Read velocity pot value
+  velocityValue = analogRead(velocityPotPin);
+ 
+  //"LOW" PORTB pins
+  PORTB = B00000000;
+  delay(velocityValue); 
+ 
+  //"HIGH" PORTB pins
+  PORTB = B11111111;
+  delay(velocityValue); 
+  }
