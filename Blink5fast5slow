@@ -1,0 +1,59 @@
+/*
+Originally adapted from the Example Blink file in Arduino IDE by Scott Fitzgerald. 
+Just changed the parameters in the loop and repeat the instructions as many times as needed.
+Not very elegant first try, but it works. Prefer to use counter. Will add that on as second 
+attempt.
+
+Modified on 03FEB2016 to submit as coursera thing. Also on github.com/Blauwefox
+ */
+
+
+// the setup function runs once when you press reset or power the board
+void setup() {
+  // initialize digital pin 13 as an output.
+  pinMode(13, OUTPUT);
+}
+
+// the loop function runs over and over again forever
+void loop() {
+  digitalWrite(13, HIGH);   
+  delay(500);              
+  digitalWrite(13, LOW);   
+  delay(500);              
+  digitalWrite(13, HIGH);   
+  delay(500);              
+  digitalWrite(13, LOW);   
+  delay(500);              
+  digitalWrite(13, HIGH);   
+  delay(500);              
+  digitalWrite(13, LOW);   
+  delay(500);              
+  digitalWrite(13, HIGH);   
+  delay(500);   
+  digitalWrite(13, LOW);   
+  delay(500);            
+  digitalWrite(13, HIGH);   
+  delay(500);              
+  digitalWrite(13, LOW);   
+  delay(500);             
+  digitalWrite(13, HIGH);   
+  delay(2000);             
+  digitalWrite(13, LOW);    
+  delay(2000);
+  digitalWrite(13, HIGH);   
+  delay(2000);              
+  digitalWrite(13, LOW);   
+  delay(2000); 
+  digitalWrite(13, HIGH);   
+  delay(2000);             
+  digitalWrite(13, LOW);    
+  delay(2000); 
+  digitalWrite(13, HIGH);   
+  delay(2000);             
+  digitalWrite(13, LOW);    
+  delay(2000); 
+  digitalWrite(13, HIGH);  
+  delay(2000);              
+  digitalWrite(13, LOW);  
+  delay(2000);
+}
