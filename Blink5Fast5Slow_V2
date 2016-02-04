@@ -1,0 +1,39 @@
+/*
+  Modifying Original Blink by Scott Fitzgerald for coursera submission.
+
+  Blink fast 5 times (every half second) 
+  then slow 5 times (every 2 seconds)
+  ad infinitum as long as Arduino is powered
+
+  Modified 03FEB2016 VERSION 2 is more aesthetically pleasing.
+ */
+
+
+// the setup function runs once when you press reset or power the board
+void setup() {
+  // initialize digital pin 13 as an output.
+  pinMode(13, OUTPUT);
+}
+
+// the loop function runs over and over again forever
+void loop() {
+  int k = 0; //declare counters k and l 
+  int l = 0;
+
+  //start loop for fast BLINK 5 times
+  while (k<5) { 
+        digitalWrite(13, HIGH);   
+        delay(500);              
+        digitalWrite(13, LOW);   
+        delay(500);
+        k = k + 1;}
+        
+  //start loop for slow BLINK 5 times
+  while (l<5) {
+        digitalWrite(13, HIGH);   
+        delay(2000);              
+        digitalWrite(13, LOW);   
+        delay(2000);
+        l = l + 1;}
+  }
+//lather, rinse and repeat so long the Uno is powered :) 
